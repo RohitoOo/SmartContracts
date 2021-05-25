@@ -65,3 +65,28 @@ contract MyContract {
    }
 }
 
+pragma solidity >=0.7.0 <0.9.0;
+
+contract MyContract {
+    
+    // Using Mapping - Similar to Hash Table - Reference by Key Value Pair 
+
+    uint256 public peopleCount;
+
+    mapping(uint => Person) public people;
+   
+   // Internal count of people 
+   
+   
+   struct Person {
+       uint _id;
+       string _firstName;
+       string _lastName;
+   }
+   
+   function addPerson(string memory _firstName, string memory _lastName) public {
+       peopleCount += 1;
+        people[peopleCount] = Person(peopleCount, _firstName, _lastName);
+   }
+}
+
